@@ -1,11 +1,32 @@
 body{
     background-color: rgb(245, 234, 190);
     color: gray;
+    margin-right: 20px;
+    overflow-x: hidden;
+    /* font-family: 'Lato', sans-serif; */
+    font-family: 'Roboto', sans-serif;
 }
+header{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+.logo{
+    width: 150px;
+    height: 100px;
+}
+
 .items-container{
     display: flex;
-    padding-left: 50px;
+    padding-left: 25px;
    
+}
+.button-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .bug-container{
@@ -13,9 +34,7 @@ body{
     height: 60px;
     background-color: white;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
     margin-left: -5px;
 
 
@@ -25,6 +44,9 @@ body{
 }
 
 .bug-section{
+    position: relative;
+    top: 13px;
+    left: 14px;
     width: 30px;
     height: 30px;
 
@@ -36,33 +58,48 @@ body{
 
 
 img{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     justify-content: center;
     align-items: center;
+}
+
+.bugs-grid{
+    margin-top: 30px;
+    margin-left: 15px;
+    
+   
 }
 
 
 .bugs{
     display: flex;
-    width: 100vw;
-    height: 310px;
+    width: 100%;
+    height: 335px;
+    margin-right: 25px;
     flex-direction: column;
     flex-wrap: wrap;
+    /* overflow-x:scroll;
+    white-space: nowrap; */
     
     
 }
 .bug-div{
     /* width: 55px; */
     display: flex;
-    height: 57px;
+    height: 65px;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
     /* margin-bottom: 3px; */
 }
 
+.bug-div:hover{
+    cursor: pointer;
+}
+
 .fish{
+    
     
 
 }
@@ -70,9 +107,10 @@ img{
 .sea-creatures-div{
     display: flex;
     width: 50vw;
-    height: 310px;
+    height: 335px;
     flex-direction: column;
     flex-wrap: wrap;
+    
    
 }
 
@@ -87,22 +125,32 @@ img{
     /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
     justify-content: center;
     align-items: center;
+    
+   
   }
   
   /* Tooltip text */
   .tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
-    background-color: #555;
-    color: #fff;
+    background-color: rgb(249, 246, 229);
+    color: #000000;
     text-align: center;
+    transform: rotate(-4deg);
     padding: 5px 0;
     border-radius: 6px;
-  
+    border-width: 4px;
+    border-style: solid;
+    border-color: initial;
+    border-image: url(../src/assets/image.svg) 40 / 12px / 0 round;
+    box-shadow:  rgba(0, 0, 0, 0.2) -2px 2px 3px 0px;
+    font-weight: 400;
+    font-style: italic;
+      
     /* Position the tooltip text */
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 95%;
     left: 50%;
     margin-left: -60px;
   
@@ -110,23 +158,52 @@ img{
     opacity: 0;
     transition: opacity 0.3s;
   }
-  
-  /* Tooltip arrow */
-  .tooltip .tooltiptext::after {
-    content: "";
+
+  .tooltip .tooltiptitle {
+
+    visibility: visible;
+    width: 120px;
+    /* background-color: rgb(249, 246, 229); */
+    color: #000000;
+    text-align: center;
+    /* transform: rotate(-4deg); */
+    padding: 5px 0;
+    /* border-radius: 6px; */
+    border-width: 4px;
+    /* border-style: solid;
+    border-color: initial;
+    border-image: url(../src/assets/image.svg) 40 / 12px / 0 round; */
+    box-shadow:  rgba(0, 0, 0, 0.2) -2px 2px 3px 0px;
+    font-weight: 400;
+    font-style: italic;
+      
+    /* Position the tooltip text */
     position: absolute;
-    top: 100%;
+    z-index: 1;
+    bottom: 95%;
     left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    margin-left: -60px;
+  
+    /* Fade in tooltip */
+    opacity: 1;
+    transition: opacity 0.3s;
+    border-radius: 5px;
+    background-color: rgb(254, 203, 77);
+
+  }
+
+  .show-title{
+    visibility: hidden;
+    opacity: 0;
   }
   
+
   /* Show the tooltip text when you mouse over the tooltip container */
   .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+    
+    
   }
 
 

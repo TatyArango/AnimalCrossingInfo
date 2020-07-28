@@ -16,6 +16,16 @@ let seaBtn = document.querySelector('#seaBtn');
 let bugsView = document.querySelector('#bugsView');
 let fishView = document.querySelector('#fishView');
 let seaView = document.querySelector('#seaView');
+let bugsTitle = document.querySelector('#titleBugs');
+let fishTitle = document.querySelector('#titleFish');
+let seaTitle = document.querySelector('#titleSea');
+
+// let containerDiv = document.createElement('div');
+// let img = document.createElement('img');
+// let tooltipDiv = document.createElement('div');
+// let tooltipSpan = document.createElement('span');
+
+let div = document.querySelector('.bug-div');
 
 let bugs;
 let fishes;
@@ -29,6 +39,7 @@ let category = '';
 
 
 let isVisible = true;
+
 
 
 const clearDiv = () =>{
@@ -54,6 +65,9 @@ const createDiv = (category, id, name) =>{
     tooltipDiv.classList.add('tooltip');
     tooltipSpan.classList.add('tooltiptext');
     containerDiv.classList.add('bug-div');
+    containerDiv.addEventListener('click', ()=>{
+        openDetail(id);
+    });
     tooltipSpan.innerText = `${name}`;
 
 }
@@ -66,6 +80,12 @@ bugsBtn.addEventListener('click', async() =>{
     bugsBtn.classList.add('yellow-icon');
     fishBtn.classList.remove('yellow-icon');
     seaBtn.classList.remove('yellow-icon');
+
+    bugsTitle.classList.remove('hide');
+    fishTitle.classList.add('hide');
+    seaTitle.classList.add('hide');
+
+ 
     
     bugsView.classList.remove('hide');
     bugsView.classList.remove('sea-creatures-div');
@@ -95,6 +115,11 @@ fishBtn.addEventListener('click',async() =>{
     bugsBtn.classList.remove('yellow-icon');
     seaBtn.classList.remove('yellow-icon');
 
+    bugsTitle.classList.add('hide');
+    fishTitle.classList.remove('hide');
+    seaTitle.classList.add('hide');
+    
+
     bugsView.classList.remove('hide');
     bugsView.classList.remove('sea-creatures-div');
     fishView.classList.add('hide');
@@ -122,6 +147,10 @@ seaBtn.addEventListener('click',async() =>{
     bugsBtn.classList.remove('yellow-icon');
     seaBtn.classList.add('yellow-icon');
 
+    bugsTitle.classList.add('hide');
+    fishTitle.classList.add('hide');
+    seaTitle.classList.remove('hide');
+
     bugsView.classList.add('sea-creatures-div');
     fishView.classList.add('hide');
     bugsView.classList.remove('hide');
@@ -141,4 +170,10 @@ seaBtn.addEventListener('click',async() =>{
         
             
 })
+
+const openDetail = (id) =>{
+    console.log(`click en el div!! ${id}`);
+
+}
+
 
