@@ -20,6 +20,13 @@ let bugsTitle = document.querySelector('#titleBugs');
 let fishTitle = document.querySelector('#titleFish');
 let seaTitle = document.querySelector('#titleSea');
 
+let modalTitle = document.querySelector("#title");
+
+let modal = document.querySelector(".modal");
+
+let closeButton = document.querySelector(".close-button");
+
+
 // let containerDiv = document.createElement('div');
 // let img = document.createElement('img');
 // let tooltipDiv = document.createElement('div');
@@ -27,10 +34,17 @@ let seaTitle = document.querySelector('#titleSea');
 
 let div = document.querySelector('.bug-div');
 
-let bugs;
+let bugs = {
+    id: '',
+    name: '',
+    price: '',
+    rarity: ''
+
+};
 let fishes;
 let creatures;
-let bug = '';
+let bicho = [];
+let bug;
 let fish = '';
 let creature = '';
 let bugsLength = 0;
@@ -48,7 +62,7 @@ const clearDiv = () =>{
 
 }
 
-const createDiv = (category, id, name) =>{
+const createDiv = (category, id, name, rarity, bug) =>{
 
 
     let containerDiv = document.createElement('div');
@@ -66,7 +80,7 @@ const createDiv = (category, id, name) =>{
     tooltipSpan.classList.add('tooltiptext');
     containerDiv.classList.add('bug-div');
     containerDiv.addEventListener('click', ()=>{
-        openDetail(id);
+        toggleDetail(name, id, rarity, bug);
     });
     tooltipSpan.innerText = `${name}`;
 
@@ -93,17 +107,31 @@ bugsBtn.addEventListener('click', async() =>{
     fishView.classList.add('hide');
     seaView.classList.add('hide')
 
-    bugs = await getBugs().then((bugs)=>{
+    bugs = await getBugs().then((data)=>{
 
-        for (bug in bugs){
+        for (bug in data){
             
-            let name = bugs[bug]["name"]["name-USes"];
-            let id = bugs[bug]["id"];
-            createDiv(category, id, name);
+            let name = data[bug]["name"]["name-USes"];
+            let id = data[bug]["id"];
+            let price = data[bug]["price"]
+            let priceFlick = data[bug]["price-flick"]
+            let isAllDay = data[bug]["availability"]["isAllDay"];
+            let time = data[bug]["availability"]["time"];
+            let isAllYear = data[bug]["availability"]["isAllYear"];
+            let northernMonth = data[bug]["availability"]["month-northern"];
+            let southernMonth =  data[bug]["availability"]["month-southern"];
+            let location = data[bug]["availability"]["location"];
+            let rarity = data[bug]["availability"]["rarity"];
+
+            createDiv(category, id, name, rarity, bug);
             
         }      
 
     });
+
+    console.log(bugs);
+    // console.log(rarity);
+
 
 })
 
@@ -131,6 +159,16 @@ fishBtn.addEventListener('click',async() =>{
             
             let name = fishes[fish]["name"]["name-USes"];
             let id = fishes[fish]["id"];
+            // price
+            // price-cj
+            // "availability"
+            // isAllDay
+            // time
+            // isAllYear
+            // month-northern
+            // month-southern
+            // location
+            // rarity
             createDiv(category, id, name);
             
         }      
@@ -161,6 +199,15 @@ seaBtn.addEventListener('click',async() =>{
             
             let name = creatures[creature]["name"]["name-USes"];
             let id = creatures[creature]["id"];
+            // price
+            
+            // "availability"
+            // isAllDay
+            // time
+            // isAllYear
+            // month-northern
+            // month-southern
+            // speed
             createDiv(category, id, name);
             
         }      
@@ -171,9 +218,32 @@ seaBtn.addEventListener('click',async() =>{
             
 })
 
-const openDetail = (id) =>{
+const toggleDetail = (name, id, rarity, bug) =>{
     console.log(`click en el div!! ${id}`);
+    modal.classList.toggle("show-modal");
+    // modalTitle.innerText = `soy el numero ${name}`;
+    console.log(`soy !!! ${rarity}`);
+    console.log(`aqui hay esta info ${bug}`)
 
 }
+
+
+// function toggleModal() {
+//     modal.classList.toggle("show-modal");
+// }
+const windowOnClick = (event) => {
+    if (event.target === modal) {
+        toggleDetail();
+    }
+}
+// function windowOnClick(event) {
+//     if (event.target === modal) {
+//         toggleDetail();
+//     }
+// }
+
+
+closeButton.addEventListener("click", toggleDetail);
+window.addEventListener("click", windowOnClick);
 
 

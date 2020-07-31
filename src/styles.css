@@ -81,6 +81,7 @@ img{
     flex-wrap: wrap;
     /* overflow-x:scroll;
     white-space: nowrap; */
+
     
     
 }
@@ -205,5 +206,159 @@ img{
     
     
   }
+/*#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#*/
 
 
+
+  .modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(245, 234, 190);
+    padding: 1rem 1.5rem;
+    width: 50rem;
+    height: 30rem;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr) 20px;
+    grid-template-rows: repeat(8,1fr);
+    grid-template-areas: 
+    "name name monthsNorth monthsSouth close"
+    ". . monthN monthS ."
+    "image image timeTitleN timeTitleS ."
+    "image image timeN timeS ."
+    "image image rarityTitle . ."
+    ". . rarity . ."
+    "priceTitle specialTitle locationTitle . ."
+    "price specialPrice location . .";
+    /* place-items: center/center; */
+    justify-content: space-around; 
+    align-content: space-around; 
+}
+.name{
+    grid-area: name;
+    background-color: red;
+
+}
+.monthsNorth{
+    grid-area: monthsNorth;
+    background-color: blue;
+
+}
+.monthsSouth{
+    grid-area: monthsSouth;
+    background-color: yellow;
+
+}
+.monthN{
+    grid-area: monthN;
+    background-color: purple;
+
+}
+.monthS{
+    grid-area: monthS;
+    background-color: green;
+
+}
+.image{
+    grid-area: image;
+    background-color: palevioletred;
+
+}
+.timeTitleN{
+    grid-area: timeTitleN;
+    background-color: black;
+
+}
+.timeTitleS{
+    grid-area: timeTitleS;
+    background-color: darkgreen;
+
+}
+.timeN{
+    grid-area: timeN;
+    background-color: lightcoral;
+
+}
+.timeS{
+    grid-area: timeS;
+    background-color: lightblue;
+
+}
+.rarityTitle{
+    grid-area: rarityTitle;
+    background-color: navy;
+
+}
+.rarity{
+    grid-area: rarity;
+    background-color: turquoise;
+
+}
+.priceTitle{
+    grid-area: priceTitle;
+    background-color: orange;
+
+} 
+.specialTitle{
+    grid-area: specialTitle;
+    background-color: sienna;
+
+}
+
+.locationTitle{
+    grid-area: locationTitle;
+    background-color: magenta;
+
+}
+.price {
+    grid-area: price;
+    background-color: olive;
+
+}
+.specialPrice{
+    grid-area: specialPrice;
+    background-color: gold;
+
+} 
+.location{
+    grid-area: location;
+    background-color: chartreuse;
+
+}
+
+
+
+.close-button {
+    float: right;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+    grid-area: close;
+}
+.close-button:hover {
+    background-color: darkgray;
+}
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
