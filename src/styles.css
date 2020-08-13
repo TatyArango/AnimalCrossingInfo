@@ -57,7 +57,7 @@ header{
 }
 
 
-img{
+.img{
     width: 60px;
     height: 60px;
     justify-content: center;
@@ -238,106 +238,138 @@ img{
     grid-template-areas: 
     "name name monthsNorth monthsSouth close"
     ". . monthN monthS ."
-    "image image timeTitleN timeTitleS ."
-    "image image timeN timeS ."
-    "image image rarityTitle . ."
-    ". . rarity . ."
-    "priceTitle specialTitle locationTitle . ."
-    "price specialPrice location . .";
+    "image image timeTitleN timeTitleN ."
+    "image image timeN timeN ."
+    "image image rarityTitle rarityTitle ."
+    ". . rarity rarity ."
+    "priceTitle specialTitle locationTitle locationTitle ."
+    "price specialPrice location location .";
     /* place-items: center/center; */
     justify-content: space-around; 
     align-content: space-around; 
 }
 .name{
     grid-area: name;
-    background-color: red;
+    justify-self: center;
+    align-self: end;
+    visibility: visible;
+    
+    background-color: rgb(249, 246, 229);
+    color: #000000;
+    text-align: center;
+    
+    padding: 5px 10px;
+    border-radius: 6px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: initial;
+    border-image: url(../src/assets/image.svg) 40 / 12px / 0 round;
+    box-shadow:  rgba(0, 0, 0, 0.2) -2px 2px 3px 0px;
+    font-weight: 400;
+    font-style: italic;
+    
+    
 
 }
 .monthsNorth{
     grid-area: monthsNorth;
-    background-color: blue;
+    justify-self: center;
+    align-self: end;
 
 }
 .monthsSouth{
     grid-area: monthsSouth;
-    background-color: yellow;
+    justify-self: center;
+    align-self: end;
 
 }
 .monthN{
     grid-area: monthN;
-    background-color: purple;
+    justify-self: center;
 
 }
 .monthS{
     grid-area: monthS;
-    background-color: green;
+    justify-self: center;
 
 }
 .image{
     grid-area: image;
-    background-color: palevioletred;
+    justify-self: center;
+    align-self: center;
+    width: 18rem;
 
 }
 .timeTitleN{
     grid-area: timeTitleN;
-    background-color: black;
+    justify-self: center;
+    align-self: end;
 
 }
 .timeTitleS{
     grid-area: timeTitleS;
-    background-color: darkgreen;
+    justify-self: center;
+    align-self: end;
 
 }
 .timeN{
     grid-area: timeN;
-    background-color: lightcoral;
+    justify-self: center;
 
 }
 .timeS{
     grid-area: timeS;
-    background-color: lightblue;
+    justify-self: center;
 
 }
 .rarityTitle{
     grid-area: rarityTitle;
-    background-color: navy;
+    justify-self: center;
+    align-self: end;
 
 }
 .rarity{
     grid-area: rarity;
-    background-color: turquoise;
+    justify-self: center;
 
 }
 .priceTitle{
     grid-area: priceTitle;
-    background-color: orange;
+    justify-self: center;
+    align-self: end;
 
 } 
 .specialTitle{
     grid-area: specialTitle;
-    background-color: sienna;
+    justify-self: center;
+    align-self: end;
 
 }
 
 .locationTitle{
     grid-area: locationTitle;
-    background-color: magenta;
+    justify-self: center;
+    align-self: end;
 
 }
 .price {
     grid-area: price;
-    background-color: olive;
+    justify-self: center;
 
 }
 .specialPrice{
     grid-area: specialPrice;
-    background-color: gold;
+    justify-self: center;
 
 } 
 .location{
     grid-area: location;
-    background-color: chartreuse;
+    justify-self: center;
 
+}
+
+.title{
+    color:black;
 }
 
 
